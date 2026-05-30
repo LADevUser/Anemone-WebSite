@@ -1,0 +1,19 @@
+---
+const year = new Date().getFullYear();
+const footerLinks = [
+	{ label: 'Vision', href: '/vision/' },
+	{ label: 'Projekt', href: '/projekt/' },
+	{ label: 'Journal', href: '/journal/' },
+	{ label: 'Filosofi', href: '/filosofi/' },
+	{ label: 'Delta', href: '/delta/' },
+];
+---
+
+<footer class="site-footer">
+	<div class="container site-footer__inner">
+		<p>&copy; {year} Anemone</p>
+		<nav class="site-footer__nav" aria-label="Footer navigation">
+			{footerLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+		</nav>
+	</div>
+</footer>

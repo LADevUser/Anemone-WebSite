@@ -1,0 +1,40 @@
+---
+const navigation = [
+	{ label: 'Home', href: '/' },
+	{ label: 'Vision', href: '/vision/' },
+	{ label: 'Projekt', href: '/projekt/' },
+	{ label: 'Journal', href: '/journal/' },
+	{ label: 'Filosofi', href: '/filosofi/' },
+	{ label: 'Delta', href: '/delta/' },
+];
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) => {
+	if (href === '/') {
+		return currentPath === '/';
+	}
+
+	return currentPath === href || currentPath.startsWith(href);
+};
+---
+
+<header class="site-header">
+	<div class="container site-header__inner">
+		<a class="site-logo" href="/" aria-label="Anemone home">
+			<span class="site-logo__mark" aria-hidden="true"></span>
+			<span>Anemone</span>
+		</a>
+
+		<nav class="site-nav" aria-label="Primary navigation">
+			<ul class="site-nav__list">
+				{navigation.map((item) => (
+					<li>
+						<a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+							{item.label}
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+	</div>
+</header>
