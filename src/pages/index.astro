@@ -1,17 +1,26 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+	title="Anemone"
+	description="Anemone är en plats för nordisk enkelhet, omsorg och långsiktiga projekt."
+>
+	<section class="page-section">
+		<div class="container">
+			<p class="eyebrow">Nordic calm</p>
+			<h1 class="page-title">Anemone</h1>
+			<p class="lead">
+				En stillsam digital plats för visioner, projekt, journal och filosofi.
+			</p>
+
+			<div class="content-panel">
+				<h2>Under uppbyggnad</h2>
+				<p>
+					Webbplatsen tar form med fokus på tillgänglighet, snabbhet och enkel
+					navigering.
+				</p>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
