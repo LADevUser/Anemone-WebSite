@@ -1,0 +1,21 @@
+:root {
+    --color-forest-dark: #1E3A2F;
+    --color-forest-light: #8FAF8A;
+    --color-anemone-white: #F7F8F3;
+    --color-earth: #C8B89A;
+
+    --color-text: #1E3A2F;
+    --color-text-muted: #55635B;
+
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+    --content-width: 72rem;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+}
