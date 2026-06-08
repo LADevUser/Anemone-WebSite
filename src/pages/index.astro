@@ -6,21 +6,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	title="Anemone"
 	description="Anemone är en plats för nordisk enkelhet, omsorg och långsiktiga projekt."
 >
-	<section class="page-section">
-		<div class="container">
-			<p class="eyebrow">Nordic calm</p>
-			<h1 class="page-title">Anemone</h1>
-			<p class="lead">
-				En stillsam digital plats för visioner, projekt, journal och filosofi.
-			</p>
-
-			<div class="content-panel">
-				<h2>Under uppbyggnad</h2>
-				<p>
-					Webbplatsen tar form med fokus på tillgänglighet, snabbhet och enkel
-					navigering.
+	<section class="hero">
+		<div class="container hero__inner">
+			<div class="hero__content">
+				<p class="hero__kicker">Stable at the root. Calm by design.</p>
+				<h1 class="hero__title">Anemone</h1>
+				<p class="hero__lead">
+					Har du någonsin känt att världen borde kunna mer än så här?
 				</p>
 			</div>
+
+			<img
+				class="hero__mark"
+				src={`${import.meta.env.BASE_URL}branding/hero-mark.svg`}
+				alt=""
+				width="355"
+				height="263"
+				loading="eager"
+				decoding="async"
+			/>
 		</div>
 	</section>
 </BaseLayout>

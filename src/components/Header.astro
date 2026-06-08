@@ -8,7 +8,12 @@ const navigation = [
 	{ label: 'Delta', href: '/delta/' },
 ];
 
-const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+const withBase = (path: string) => `${base}${path.replace(/^\/+/, '')}`;
+const currentPath =
+	base === '/' ? Astro.url.pathname : Astro.url.pathname.replace(base.slice(0, -1), '') || '/';
 const isCurrent = (href: string) => {
 	if (href === '/') {
 		return currentPath === '/';
@@ -20,16 +25,27 @@ const isCurrent = (href: string) => {
 
 <header class="site-header">
 	<div class="container site-header__inner">
-		<a class="site-logo" href="/" aria-label="Anemone home">
-			<span class="site-logo__mark" aria-hidden="true"></span>
-			<span>Anemone</span>
+		<a class="site-logo" href={withBase('/')} aria-label="Anemone home">
+			<object
+				class="site-logo__asset"
+				data={withBase('/branding/logo.svg')}
+				type="image/svg+xml"
+				aria-hidden="true"
+				tabindex="-1"
+			>
+				<span aria-hidden="true"></span>
+			</object>
+			<span class="site-logo__name">Anemone</span>
 		</a>
 
 		<nav class="site-nav" aria-label="Primary navigation">
 			<ul class="site-nav__list">
 				{navigation.map((item) => (
 					<li>
-						<a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+						<a
+							href={withBase(item.href)}
+							aria-current={isCurrent(item.href) ? 'page' : undefined}
+						>
 							{item.label}
 						</a>
 					</li>
