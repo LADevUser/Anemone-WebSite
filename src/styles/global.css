@@ -316,6 +316,33 @@ svg {
 	font-size: 1.1rem;
 }
 
+.project-summary {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.25rem 2rem;
+	margin: clamp(1.75rem, 5vw, 2.5rem) 0 0;
+	padding: clamp(1.25rem, 4vw, 1.75rem);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	background: var(--color-bg-soft);
+}
+
+.project-summary__description {
+	grid-column: 1 / -1;
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.project-summary dt {
+	color: var(--color-text);
+	font-weight: 700;
+}
+
+.project-summary dd {
+	margin: 0.3rem 0 0;
+	color: var(--color-text-soft);
+}
+
 .prose {
 	max-width: 42rem;
 	padding-top: clamp(2rem, 5vw, 3rem);
@@ -435,6 +462,14 @@ svg {
 	.hero__mark {
 		width: 11.5rem;
 		justify-self: end;
+	}
+
+	.project-summary {
+		grid-template-columns: 1fr;
+	}
+
+	.project-summary__description {
+		grid-column: auto;
 	}
 }
 

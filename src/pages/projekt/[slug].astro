@@ -21,6 +21,7 @@ const { Content } = await render(project);
 const base = import.meta.env.BASE_URL.endsWith('/')
 	? import.meta.env.BASE_URL
 	: `${import.meta.env.BASE_URL}/`;
+const hasProjectSummary = Boolean(project.data.audience && project.data.focus);
 ---
 
 <BaseLayout title={project.data.title} description={project.data.description}>
@@ -30,8 +31,31 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 			<header class="article-header">
 				<p class="eyebrow">Projekt</p>
 				<h1 class="article-title">{project.data.title}</h1>
-				<p class="entry-meta">{project.data.status}</p>
-				<p class="article-description">{project.data.description}</p>
+				{hasProjectSummary ? (
+					<dl class="project-summary">
+						<div class="project-summary__description">
+							<dt>Projektbeskrivning</dt>
+							<dd>{project.data.description}</dd>
+						</div>
+						<div>
+							<dt>Status</dt>
+							<dd>{project.data.status}</dd>
+						</div>
+						<div>
+							<dt>Målgrupp</dt>
+							<dd>{project.data.audience}</dd>
+						</div>
+						<div>
+							<dt>Fokus</dt>
+							<dd>{project.data.focus}</dd>
+						</div>
+					</dl>
+				) : (
+					<>
+						<p class="entry-meta">{project.data.status}</p>
+						<p class="article-description">{project.data.description}</p>
+					</>
+				)}
 			</header>
 			<div class="prose">
 				<Content />
