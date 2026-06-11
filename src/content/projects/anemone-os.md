@@ -4,6 +4,7 @@ description: "Ett pågående initiativ för att undersöka hur stabil, resurssn�
 status: "Proof of Concept-utveckling"
 audience: "Organisationer och offentlig sektor"
 focus: "Digital självständighet, hållbarhet och lång livslängd"
+repository: "https://github.com/LADevUser/Anemone-OS"
 order: 2
 draft: false
 ---
@@ -16,7 +17,7 @@ För organisationer handlar det om att få större nytta av resurser som redan f
 
 Vitsippan är en symbol för den inriktningen. Den är lågmäld, uthållig och återkommer när förutsättningarna är de rätta. På samma sätt ska tekniken skapa möjligheter utan att själv stå i vägen. Systemet ska stödja människors arbete, inte begränsa det genom onödig komplexitet.
 
-Anemone OS är ännu inte en färdig produkt. Arbetet består av undersökningar, avgränsade försök och löpande utvärdering av vad som fungerar i praktiken.
+Anemone OS är ännu inte en färdig produkt. Arbetet befinner sig i aktiv Proof of Concept-utveckling med ett startbart system, avgränsade försök och löpande utvärdering av vad som fungerar i praktiken.
 
 ## Europa visar att alternativ är möjliga
 
@@ -60,3 +61,13 @@ Anemone OS utgår från några enkla prioriteringar:
 Om användaren inte märker operativsystemet under arbetsdagen har vi ofta lyckats.
 
 Tekniken ska arbeta i bakgrunden så att människor kan fokusera på det som faktiskt skapar värde.
+
+## Varför är detta projekt en del av Anemone?
+
+Anemone OS undersöker hur digitala arbetsmiljöer kan bli mer långsiktiga, begripliga och självständiga. Projektet omsätter Anemones övergripande inriktning i ett konkret tekniskt arbete som kan prövas och utvärderas.
+
+## Nästa steg
+
+Nästa fas är att stabilisera den startbara Proof of Concept-versionen, dokumentera de tekniska valen och fortsätta testa centrala arbetsflöden. Resultaten ska ge underlag för att avgränsa vilka användningsområden som är rimliga att utveckla vidare.
+
+Projektets kod finns i [Anemone OS på GitHub](https://github.com/LADevUser/Anemone-OS).

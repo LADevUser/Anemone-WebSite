@@ -158,8 +158,8 @@ responsive global styling, navigation, journal and project collections, and
 initial Swedish demonstration content. Vision, Filosofi, and Bidra still
 contain placeholder-level content.
 
-Anemone OS is presented as an active Proof of Concept initiative, not a
-finished product. Anemone Spatial Environment remains exploratory.
+Anemone OS and Anemone Spatial System are presented as active Proof of Concept
+initiatives, not finished products.
 
 ## Known conventions
 
@@ -176,4 +176,3 @@ finished product. Anemone Spatial Environment remains exploratory.
   with Bidra at `/delta/`.
 - Do not depend on local Codex conversation history. Record durable decisions
   in the repository.
-

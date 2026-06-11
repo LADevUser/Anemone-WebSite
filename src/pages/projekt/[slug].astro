@@ -49,6 +49,14 @@ const hasProjectSummary = Boolean(project.data.audience && project.data.focus);
 							<dt>Fokus</dt>
 							<dd>{project.data.focus}</dd>
 						</div>
+						{project.data.repository && (
+							<div>
+								<dt>Repository</dt>
+								<dd>
+									<a href={project.data.repository}>GitHub</a>
+								</dd>
+							</div>
+						)}
 					</dl>
 				) : (
 					<>

@@ -20,6 +20,7 @@ const projects = defineCollection({
 		status: z.string(),
 		audience: z.string().optional(),
 		focus: z.string().optional(),
+		repository: z.string().url().optional(),
 		order: z.number(),
 		draft: z.boolean().default(false),
 	}),
