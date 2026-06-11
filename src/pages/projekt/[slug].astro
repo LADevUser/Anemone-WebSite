@@ -1,0 +1,73 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+	const projects = await getCollection('projects', ({ data }) => !data.draft);
+
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
+}) satisfies GetStaticPaths;
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+const hasProjectSummary = Boolean(project.data.audience && project.data.focus);
+---
+
+<BaseLayout title={project.data.title} description={project.data.description}>
+	<article class="article-page">
+		<div class="container article-page__inner">
+			<a class="back-link" href={`${base}projekt/`}>&larr; Till Projekt</a>
+			<header class="article-header">
+				<p class="eyebrow">Projekt</p>
+				<h1 class="article-title">{project.data.title}</h1>
+				{hasProjectSummary ? (
+					<dl class="project-summary">
+						<div class="project-summary__description">
+							<dt>Projektbeskrivning</dt>
+							<dd>{project.data.description}</dd>
+						</div>
+						<div>
+							<dt>Status</dt>
+							<dd>{project.data.status}</dd>
+						</div>
+						<div>
+							<dt>Målgrupp</dt>
+							<dd>{project.data.audience}</dd>
+						</div>
+						<div>
+							<dt>Fokus</dt>
+							<dd>{project.data.focus}</dd>
+						</div>
+						{project.data.repository && (
+							<div>
+								<dt>Repository</dt>
+								<dd>
+									<a href={project.data.repository}>GitHub</a>
+								</dd>
+							</div>
+						)}
+					</dl>
+				) : (
+					<>
+						<p class="entry-meta">{project.data.status}</p>
+						<p class="article-description">{project.data.description}</p>
+					</>
+				)}
+			</header>
+			<div class="prose">
+				<Content />
+			</div>
+		</div>
+	</article>
+</BaseLayout>

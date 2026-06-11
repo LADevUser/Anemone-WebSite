@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# Anemone Website
+
+Static website for Anemone, built with Astro 6 and deployed to GitHub Pages.
+The project prioritizes calm Nordic design, accessibility, fast loading, and a
+small Git-based content workflow.
+
+## Documentation
+
+Start here before making changes:
+
+- [Project context](docs/PROJECT_CONTEXT.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Starting a Codex session](docs/CODEX_START.md)
+- [Architecture decisions](docs/decisions/)
+
+## Requirements
+
+- Node.js 22.12 or newer
+- npm
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The development server normally runs at `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Validation
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The static output is written to `dist/`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Deployment
 
-Any static assets, like images, can be placed in the `public/` directory.
+Pushes to `main` are built and deployed through GitHub Actions. Production is
+served from:
 
-## 🧞 Commands
+`https://ladevuser.github.io/Anemone-WebSite/`
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The repository subpath is configured in `astro.config.mjs`. Keep internal links
+and public asset references compatible with `import.meta.env.BASE_URL`.

@@ -1,5 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const entries = (await getCollection('journal', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+const formatDate = (date: Date) =>
+	new Intl.DateTimeFormat('sv-SE', { dateStyle: 'long' }).format(date);
 ---
 
 <BaseLayout title="Journal" description="Anteckningar, reflektioner och uppdateringar från Anemone.">
@@ -8,13 +18,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<p class="eyebrow">Noterat</p>
 			<h1 class="page-title">Journal</h1>
 			<p class="lead">
-				En placeholder för anteckningar, uppdateringar och längre reflektioner.
+				Anteckningar om arbetet, valen längs vägen och sådant som behöver tänkas vidare.
 			</p>
 
-			<div class="content-panel">
-				<h2>Kommer snart</h2>
-				<p>Journalen blir en enkel plats för löpande texter.</p>
-			</div>
+			<ol class="entry-list">
+				{entries.map((entry) => (
+					<li class="entry-list__item">
+						<article>
+							<time class="entry-meta" datetime={entry.data.pubDate.toISOString()}>
+								{formatDate(entry.data.pubDate)}
+							</time>
+							<h2 class="entry-list__title">
+								<a href={`${base}journal/${entry.id}/`}>{entry.data.title}</a>
+							</h2>
+							<p>{entry.data.description}</p>
+						</article>
+					</li>
+				))}
+			</ol>
 		</div>
 	</section>
 </BaseLayout>

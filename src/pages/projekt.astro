@@ -1,5 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort(
+	(a, b) => a.data.order - b.data.order,
+);
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title="Projekt" description="Pågående och kommande projekt från Anemone.">
@@ -8,13 +16,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<p class="eyebrow">Arbete</p>
 			<h1 class="page-title">Projekt</h1>
 			<p class="lead">
-				En placeholder för projekt, initiativ och samarbeten.
+				Ett litet urval av sådant som byggs, undersöks och dokumenteras inom Anemone.
 			</p>
 
-			<div class="content-panel">
-				<h2>Kommer snart</h2>
-				<p>Projektöversikten byggs ut när innehållet är redo.</p>
-			</div>
+			<ol class="entry-list">
+				{projects.map((project) => (
+					<li class="entry-list__item">
+						<article>
+							<p class="entry-meta">{project.data.status}</p>
+							<h2 class="entry-list__title">
+								<a href={`${base}projekt/${project.id}/`}>{project.data.title}</a>
+							</h2>
+							<p>{project.data.description}</p>
+						</article>
+					</li>
+				))}
+			</ol>
 		</div>
 	</section>
 </BaseLayout>
