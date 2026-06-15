@@ -1,6 +1,6 @@
 ---
 title: "Anemone OS"
-description: "Ett pågående initiativ för att undersöka hur stabil, resurssnål och långsiktigt användbar teknik kan utformas."
+description: "Ett Debian-baserat operativsystem för stabila, enkla och långsiktigt användbara digitala arbetsmiljöer."
 status: "Proof of Concept-utveckling"
 audience: "Organisationer och offentlig sektor"
 focus: "Digital självständighet, hållbarhet och lång livslängd"
@@ -8,16 +8,6 @@ repository: "https://github.com/LADevUser/Anemone-OS"
 order: 2
 draft: false
 ---
-
-## Teknik som frigör potential
-
-Anemone OS är ett pågående initiativ som undersöker hur befintlig hårdvara kan fortsätta vara användbar under längre tid. Genom att utgå från stabilitet, rimliga systemkrav och tydliga arbetsflöden vill vi minska behovet av onödiga utbytescykler.
-
-För organisationer handlar det om att få större nytta av resurser som redan finns. En dator som fortfarande fyller sin uppgift behöver inte automatiskt ersättas för att en programvarumiljö har blivit tyngre eller svårare att underhålla.
-
-Vitsippan är en symbol för den inriktningen. Den är lågmäld, uthållig och återkommer när förutsättningarna är de rätta. På samma sätt ska tekniken skapa möjligheter utan att själv stå i vägen. Systemet ska stödja människors arbete, inte begränsa det genom onödig komplexitet.
-
-Anemone OS är ännu inte en färdig produkt. Arbetet befinner sig i aktiv Proof of Concept-utveckling med ett startbart system, avgränsade försök och löpande utvärdering av vad som fungerar i praktiken.
 
 ## Europa visar att alternativ är möjliga
 
@@ -47,27 +37,3 @@ Frankrikes nationella gendarmeri har under lång tid använt GendBuntu, en Ubunt
 **Anemone OS är inte en kopia av Danmarks, Tysklands eller Frankrikes initiativ.**
 
 Vi ser dem som exempel på att organisationer runt om i Europa redan undersöker samma frågor som Anemone försöker adressera: digital självständighet, långsiktig hållbarhet och bättre användning av befintliga resurser. Vi erbjuder svenska organisationer samma möjligheter som våra europeiska grannar redan tar del av.
-
-## Vad skiljer Anemone OS från andra Linuxdistributioner?
-
-Anemone OS utgår från några enkla prioriteringar:
-
-- Stabilitet före experiment
-- Användarupplevelse före teknisk prestige
-- Enkelhet före komplexitet
-- Långsiktighet före trender
-- Praktisk nytta före funktioner på en specifikationslista
-
-Om användaren inte märker operativsystemet under arbetsdagen har vi ofta lyckats.
-
-Tekniken ska arbeta i bakgrunden så att människor kan fokusera på det som faktiskt skapar värde.
-
-## Varför är detta projekt en del av Anemone?
-
-Anemone OS undersöker hur digitala arbetsmiljöer kan bli mer långsiktiga, begripliga och självständiga. Projektet omsätter Anemones övergripande inriktning i ett konkret tekniskt arbete som kan prövas och utvärderas.
-
-## Nästa steg
-
-Nästa fas är att stabilisera den startbara Proof of Concept-versionen, dokumentera de tekniska valen och fortsätta testa centrala arbetsflöden. Resultaten ska ge underlag för att avgränsa vilka användningsområden som är rimliga att utveckla vidare.
-
-Projektets kod finns i [Anemone OS på GitHub](https://github.com/LADevUser/Anemone-OS).

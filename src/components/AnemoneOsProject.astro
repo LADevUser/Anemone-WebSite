@@ -1,0 +1,568 @@
+---
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+	Content: any;
+	base: string;
+}
+
+const { project, Content, base } = Astro.props;
+const images = {
+	boot: {
+		src: `${base}images/anemone-os/anemone-os-boot.png`,
+		path: resolve(process.cwd(), 'public/images/anemone-os/anemone-os-boot.png'),
+		width: 1672,
+		height: 941,
+	},
+	login: {
+		src: `${base}images/anemone-os/anemone-os-login.png`,
+		path: resolve(process.cwd(), 'public/images/anemone-os/anemone-os-login.png'),
+		width: 1448,
+		height: 1086,
+	},
+	desktop: {
+		src: `${base}images/anemone-os/anemone-os-desktop.png`,
+		path: resolve(process.cwd(), 'public/images/anemone-os/anemone-os-desktop.png'),
+		width: 1536,
+		height: 1024,
+	},
+};
+
+const hasImage = (path: string) => existsSync(path);
+---
+
+<article class="anemone-os-page">
+	<section class="anemone-os-hero">
+		<div class="container anemone-os-hero__inner">
+			<a class="back-link" href={`${base}projekt/`}>&larr; Till Projekt</a>
+			<div class="anemone-os-hero__content">
+				<p class="eyebrow">Projekt</p>
+				<h1 class="anemone-os-hero__title">{project.data.title}</h1>
+				<p class="anemone-os-hero__subtitle">
+					En digital plats för fokus, lugn och långsiktigt arbete.
+				</p>
+				<p class="anemone-os-hero__intro">
+					Anemone OS är ett Debian-baserat operativsystem för människor,
+					organisationer och miljöer inom offentlig sektor som behöver stabilitet,
+					enkelhet, skönhet och långsiktigt värde.
+				</p>
+				<nav class="anemone-os-actions" aria-label="Innehåll på sidan">
+					<a class="anemone-os-action" href="#upplevelsen">Se upplevelsen</a>
+					<a class="anemone-os-action anemone-os-action--quiet" href="#designprinciper">
+						Läs designprinciperna
+					</a>
+				</nav>
+			</div>
+
+			{hasImage(images.desktop.path) && (
+				<figure class="anemone-os-hero__visual">
+					<img
+						src={images.desktop.src}
+						alt="Konceptbild av skrivbordet i Anemone OS"
+						width={images.desktop.width}
+						height={images.desktop.height}
+						loading="eager"
+						decoding="async"
+					/>
+				</figure>
+			)}
+
+			<dl class="project-summary anemone-os-summary">
+				<div class="project-summary__description">
+					<dt>Projektbeskrivning</dt>
+					<dd>{project.data.description}</dd>
+				</div>
+				<div>
+					<dt>Status</dt>
+					<dd>{project.data.status}</dd>
+				</div>
+				<div>
+					<dt>Målgrupp</dt>
+					<dd>{project.data.audience}</dd>
+				</div>
+				<div>
+					<dt>Fokus</dt>
+					<dd>{project.data.focus}</dd>
+				</div>
+				{project.data.repository && (
+					<div>
+						<dt>Repository</dt>
+						<dd><a href={project.data.repository}>GitHub</a></dd>
+					</div>
+				)}
+			</dl>
+		</div>
+	</section>
+
+	<section id="upplevelsen" class="anemone-os-section">
+		<div class="container">
+			<p class="eyebrow">Upplevelsen</p>
+			<h2 class="anemone-os-heading">Från start till arbetsro</h2>
+			<p class="anemone-os-lead">
+				De första ögonblicken sätter tonen för hela arbetsmiljön. Boot, login och
+				skrivbord utvecklas därför som delar av samma sammanhängande upplevelse.
+			</p>
+
+			<div class="anemone-os-visual-grid">
+				<article class="anemone-os-visual-card">
+					{hasImage(images.boot.path) ? (
+						<img
+							src={images.boot.src}
+							alt="Bootupplevelse i Anemone OS"
+							width={images.boot.width}
+							height={images.boot.height}
+							loading="lazy"
+							decoding="async"
+						/>
+					) : (
+						<div class="anemone-os-image-placeholder" aria-hidden="true"></div>
+					)}
+					<div class="anemone-os-visual-card__copy">
+						<h3>Boot</h3>
+						<p>En tydlig och stillsam start som visar att systemet är på väg att bli redo.</p>
+					</div>
+				</article>
+
+				<article class="anemone-os-visual-card">
+					{hasImage(images.login.path) ? (
+						<img
+							src={images.login.src}
+							alt="Inloggningsvy i Anemone OS"
+							width={images.login.width}
+							height={images.login.height}
+							loading="lazy"
+							decoding="async"
+						/>
+					) : (
+						<div class="anemone-os-image-placeholder" aria-hidden="true"></div>
+					)}
+					<div class="anemone-os-visual-card__copy">
+						<h3>Login</h3>
+						<p>Ett avskalat mellanrum mellan omvärlden och den egna arbetsdagen.</p>
+					</div>
+				</article>
+
+				<article class="anemone-os-visual-card">
+					{hasImage(images.desktop.path) ? (
+						<img
+							src={images.desktop.src}
+							alt="Skrivbordsmiljö i Anemone OS"
+							width={images.desktop.width}
+							height={images.desktop.height}
+							loading="lazy"
+							decoding="async"
+						/>
+					) : (
+						<div class="anemone-os-image-placeholder" aria-hidden="true"></div>
+					)}
+					<div class="anemone-os-visual-card__copy">
+						<h3>Desktop</h3>
+						<p>En arbetsyta där det viktigaste får ta plats utan att systemet kräver uppmärksamhet.</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section id="designprinciper" class="anemone-os-section anemone-os-section--soft">
+		<div class="container anemone-os-reading-width">
+			<p class="eyebrow">Riktning</p>
+			<h2 class="anemone-os-heading">Inte ännu en Linuxdistribution</h2>
+			<p class="anemone-os-lead">
+				Anemone OS bygger på Debian, men målet är inte att skapa Debian med ett
+				nytt tema. Det är ett försök att utforma ett operativsystem som känns som
+				en digital plats, inte bara som ett tekniskt gränssnitt.
+			</p>
+			<blockquote class="anemone-os-quote">
+				<p>“Tekniken är materialet. Upplevelsen är verket.”</p>
+			</blockquote>
+		</div>
+	</section>
+
+	<section class="anemone-os-section">
+		<div class="container">
+			<p class="eyebrow">Designprinciper</p>
+			<h2 class="anemone-os-heading">Byggt kring mänskliga värden</h2>
+			<div class="anemone-os-card-grid">
+				<article class="anemone-os-card">
+					<h3>Stabil grund</h3>
+					<p>
+						Debian ger en välprövad teknisk bas. Förändringar ska vara begripliga,
+						testbara och möjliga att underhålla över tid.
+					</p>
+				</article>
+				<article class="anemone-os-card">
+					<h3>Vacker arbetsmiljö</h3>
+					<p>
+						Det visuella uttrycket ska skapa lugn och orientering utan att bli
+						dekorativt eller stå i vägen för arbetet.
+					</p>
+				</article>
+				<article class="anemone-os-card">
+					<h3>Hjälpsam vardag</h3>
+					<p>
+						Systemet ska stödja fokus, återhämtning och kontinuitet genom varsamma
+						påminnelser och tydliga arbetsflöden.
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="anemone-os-section">
+		<div class="container">
+			<div class="anemone-os-reading-width">
+				<p class="eyebrow">Arbetsmiljö</p>
+				<h2 class="anemone-os-heading">
+					När arbetsdagen är tung ska systemet inte öka trycket
+				</h2>
+			</div>
+			{hasImage(images.desktop.path) && (
+				<figure class="anemone-os-workspace">
+					<img
+						src={images.desktop.src}
+						alt="Konceptbild av Anemone OS som digital arbetsplats"
+						width={images.desktop.width}
+						height={images.desktop.height}
+						loading="lazy"
+						decoding="async"
+					/>
+					<figcaption>
+						Konceptbild: Anemone OS som digital arbetsplats med fokus, kalender,
+						pågående arbete och milda påminnelser.
+					</figcaption>
+				</figure>
+			)}
+		</div>
+	</section>
+
+	<section class="anemone-os-section anemone-os-section--context">
+		<div class="container anemone-os-reading-width">
+			<div class="prose anemone-os-context">
+				<Content />
+			</div>
+		</div>
+	</section>
+
+	<section class="anemone-os-section anemone-os-section--soft">
+		<div class="container">
+			<p class="eyebrow">Målgrupp</p>
+			<h2 class="anemone-os-heading">
+				För organisationer som behöver teknik människor faktiskt kan leva med
+			</h2>
+			<div class="anemone-os-card-grid">
+				<article class="anemone-os-card">
+					<h3>Offentlig sektor</h3>
+					<p>
+						Verksamheter som behöver stabila arbetsmiljöer, öppna standarder och
+						större kontroll över långsiktiga teknikval.
+					</p>
+				</article>
+				<article class="anemone-os-card">
+					<h3>Kunskapsarbete</h3>
+					<p>
+						Människor som behöver sammanhängande tid, tydliga verktyg och en miljö
+						som inte konkurrerar om uppmärksamheten.
+					</p>
+				</article>
+				<article class="anemone-os-card">
+					<h3>Hållbara organisationer</h3>
+					<p>
+						Organisationer som vill använda befintlig hårdvara längre och minska
+						onödiga utbytescykler.
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="anemone-os-section">
+		<div class="container anemone-os-reading-width">
+			<p class="eyebrow">Utveckling</p>
+			<h2 class="anemone-os-heading">Status och nästa steg</h2>
+			<p class="anemone-os-lead">
+				Anemone OS befinner sig i Proof of Concept-utveckling. Den tekniska grunden
+				och ett startbart system finns redan, och den visuella riktningen och
+				produktinriktningen formas nu genom boot, login, skrivbordsupplevelse och
+				arbetsflöden.
+			</p>
+			<ul class="anemone-os-next-steps">
+				<li>Implementera bootupplevelse</li>
+				<li>Implementera login-tema</li>
+				<li>Skapa desktoptema</li>
+				<li>Ta fram säsongsbaserade bakgrunder</li>
+				<li>Utvärdera GNOME-anpassningar</li>
+				<li>Dokumentera designprinciper</li>
+				<li>Bygga första testbara ISO med Anemone-identitet</li>
+			</ul>
+			<p class="anemone-os-repository">
+				Projektets kod finns i
+				<a href={project.data.repository}>Anemone OS på GitHub</a>.
+			</p>
+		</div>
+	</section>
+</article>
+
+<style>
+	.anemone-os-page {
+		--anemone-os-radius: 12px;
+	}
+
+	.anemone-os-hero {
+		padding-block: clamp(2.5rem, 7vw, 5rem);
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-bg-soft);
+	}
+
+	.anemone-os-hero__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: clamp(2rem, 5vw, 3.5rem);
+	}
+
+	.anemone-os-hero .back-link {
+		margin-bottom: 0;
+		justify-self: start;
+	}
+
+	.anemone-os-hero__content {
+		max-width: 48rem;
+	}
+
+	.anemone-os-hero__title {
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(3.5rem, 10vw, 6.5rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 0.95;
+	}
+
+	.anemone-os-hero__subtitle {
+		max-width: 38rem;
+		margin: 1.5rem 0 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(1.45rem, 3vw, 2rem);
+		line-height: 1.35;
+	}
+
+	.anemone-os-hero__intro,
+	.anemone-os-lead {
+		max-width: 46rem;
+		margin: 1.25rem 0 0;
+		color: var(--color-text-soft);
+		font-size: clamp(1.05rem, 2vw, 1.2rem);
+	}
+
+	.anemone-os-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+
+	.anemone-os-action {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 2.75rem;
+		padding: 0.65rem 1rem;
+		border: 1px solid var(--color-text);
+		border-radius: 999px;
+		background: var(--color-text);
+		color: var(--color-bg);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.anemone-os-action--quiet {
+		background: transparent;
+		color: var(--color-text);
+	}
+
+	.anemone-os-hero__visual,
+	.anemone-os-workspace {
+		margin: 0;
+	}
+
+	.anemone-os-hero__visual img,
+	.anemone-os-workspace img,
+	.anemone-os-visual-card img {
+		width: 100%;
+		height: auto;
+		border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+		border-radius: var(--anemone-os-radius);
+		box-shadow: 0 1rem 2.5rem rgb(30 58 47 / 10%);
+	}
+
+	.anemone-os-summary {
+		margin: 0;
+		background: var(--color-bg);
+	}
+
+	.anemone-os-section {
+		padding-block: clamp(3.5rem, 8vw, 6rem);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.anemone-os-section--soft {
+		background: var(--color-bg-soft);
+	}
+
+	.anemone-os-reading-width {
+		max-width: calc(48rem + var(--space-page) + var(--space-page));
+	}
+
+	.anemone-os-heading {
+		max-width: 21ch;
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(2rem, 5vw, 3.25rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 1.08;
+	}
+
+	.anemone-os-visual-grid,
+	.anemone-os-card-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: clamp(1rem, 3vw, 1.5rem);
+		margin-top: clamp(2rem, 5vw, 3rem);
+	}
+
+	.anemone-os-visual-card,
+	.anemone-os-card {
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-radius: var(--anemone-os-radius);
+		background: var(--color-bg);
+	}
+
+	.anemone-os-visual-card {
+		box-shadow: 0 0.75rem 1.75rem rgb(30 58 47 / 8%);
+	}
+
+	.anemone-os-visual-card img {
+		aspect-ratio: 16 / 10;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+		border-radius: 0;
+		box-shadow: none;
+		background: var(--color-bg-soft);
+		object-fit: contain;
+		object-position: center;
+	}
+
+	.anemone-os-image-placeholder {
+		aspect-ratio: 16 / 10;
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-bg-soft);
+	}
+
+	.anemone-os-visual-card__copy,
+	.anemone-os-card {
+		padding: 1.25rem;
+	}
+
+	.anemone-os-visual-card h3,
+	.anemone-os-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: 1.4rem;
+		font-weight: 400;
+	}
+
+	.anemone-os-visual-card p,
+	.anemone-os-card p {
+		margin: 0.65rem 0 0;
+		color: var(--color-text-soft);
+	}
+
+	.anemone-os-quote {
+		margin: clamp(2rem, 5vw, 3rem) 0 0;
+		padding: 1.25rem 0 1.25rem clamp(1.25rem, 4vw, 2rem);
+		border-left: 3px solid var(--color-accent);
+	}
+
+	.anemone-os-quote p {
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(1.5rem, 4vw, 2.25rem);
+		line-height: 1.35;
+	}
+
+	.anemone-os-workspace {
+		margin-top: clamp(2rem, 5vw, 3rem);
+	}
+
+	.anemone-os-workspace figcaption {
+		max-width: 50rem;
+		margin-top: 0.9rem;
+		color: var(--color-text-soft);
+		font-size: 0.9rem;
+	}
+
+	.anemone-os-context {
+		max-width: none;
+		padding-top: 0;
+	}
+
+	.anemone-os-next-steps {
+		margin: 2rem 0 0;
+		padding-left: 1.25rem;
+	}
+
+	.anemone-os-next-steps li + li {
+		margin-top: 0.5rem;
+	}
+
+	.anemone-os-repository {
+		margin: 2rem 0 0;
+	}
+
+	@media (max-width: 52rem) {
+		.anemone-os-visual-grid,
+		.anemone-os-card-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.anemone-os-visual-card {
+			display: grid;
+			grid-template-columns: minmax(0, 1.2fr) minmax(12rem, 0.8fr);
+		}
+
+		.anemone-os-visual-card img,
+		.anemone-os-image-placeholder {
+			height: 100%;
+			border-right: 1px solid var(--color-border);
+			border-bottom: 0;
+		}
+	}
+
+	@media (max-width: 36rem) {
+		.anemone-os-actions {
+			align-items: stretch;
+			flex-direction: column;
+		}
+
+		.anemone-os-visual-card {
+			display: block;
+		}
+
+		.anemone-os-visual-card img,
+		.anemone-os-image-placeholder {
+			height: auto;
+			border-right: 0;
+			border-bottom: 1px solid var(--color-border);
+		}
+	}
+</style>
