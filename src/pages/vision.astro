@@ -2,19 +2,222 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Vision" description="Anemones vision och riktning.">
-	<section class="page-section">
-		<div class="container">
+<BaseLayout
+	title="Vision"
+	description="Anemones vision om frigjord potential, självständighet och digitala miljöer som hjälper människor att se fler möjligheter."
+>
+	<section class="vision-hero">
+		<div class="container vision-hero__inner">
 			<p class="eyebrow">Riktning</p>
-			<h1 class="page-title">Vision</h1>
-			<p class="lead">
-				En placeholder för Anemones vision, mål och långsiktiga riktning.
+			<h1 class="vision-title">Vision</h1>
+			<p class="vision-lead">
+				Anemone finns för att hjälpa människor och organisationer att upptäcka
+				möjligheter som redan finns omkring dem, men som ofta döljs av system som
+				blivit för tunga, för snäva eller för självklara.
 			</p>
+		</div>
+	</section>
 
-			<div class="content-panel">
-				<h2>Kommer snart</h2>
-				<p>Här samlas text om vad Anemone vill bygga och bidra med.</p>
+	<section class="vision-section">
+		<div class="container vision-grid">
+			<div>
+				<p class="eyebrow">Drivkraft</p>
+				<h2>Det som redan finns här</h2>
+			</div>
+			<div class="vision-copy">
+				<p>
+					Anemone börjar i en enkel framtidstro: världen rymmer mer potential än
+					våra nuvarande arbetssätt alltid låter oss se. I människor, i befintliga
+					resurser och i teknik som redan är tillräckligt kraftfull finns ofta mer
+					att bygga vidare på.
+				</p>
+				<p>
+					Att frigöra den potentialen kräver ibland mod att ifrågasätta
+					etablerade begränsningar. Inte för att allt gammalt ska ersättas, utan
+					för att sådant som fortfarande kan bära värde inte ska försvinna i
+					onödiga utbytescykler.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="vision-section vision-section--soft">
+		<div class="container vision-grid">
+			<div>
+				<p class="eyebrow">Från teknik</p>
+				<h2>Materialet är inte målet</h2>
+			</div>
+			<div class="vision-copy">
+				<p>
+					Teknik är nödvändig, men den är inte slutpunkten. Det viktiga är vad
+					den gör möjligt: arbetsro, självständighet, förståelse och bättre
+					användning av de resurser som redan finns.
+				</p>
+				<blockquote class="vision-quote">
+					<p>“Tekniken är materialet. Upplevelsen är verket.”</p>
+				</blockquote>
+				<p>
+					Det är därför Anemone rör sig från idé till uttryck. När tekniska
+					projekt får form, känsla och riktning blir de inte mindre praktiska.
+					De blir lättare att förstå, använda och leva med.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="vision-section">
+		<div class="container vision-grid">
+			<div>
+				<p class="eyebrow">Digital miljö</p>
+				<h2>Lugn, hjälp och lång livslängd</h2>
+			</div>
+			<div class="vision-copy">
+				<p>
+					Anemone söker digitala miljöer som känns lugna, hjälpsamma, vackra och
+					långlivade. Miljöer där tekniken inte kräver uppmärksamhet för sin egen
+					skull, utan ger människor bättre förutsättningar att tänka, skapa och
+					fortsätta.
+				</p>
+				<p>
+					Anemone OS är ett konkret steg i den riktningen, men visionen är bredare
+					än ett enskilt operativsystem. Den handlar om att bygga verktyg och
+					miljöer där självständighet, omsorg och effektiv resursanvändning får
+					en praktisk form.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="vision-closing-section">
+		<div class="container">
+			<div class="vision-closing">
+				<p>
+					Om du någon gång har känt att vår värld borde vara mer än det vi ser idag, då har du redan förstått vad det är som driver Anemone.
+				</p>
+
+				<p>Du är inte ensam.</p>
+
+				<p>Det börjar här.</p>
 			</div>
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.vision-hero {
+		padding-block: clamp(4rem, 10vw, 7rem);
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-bg-soft);
+	}
+
+	.vision-hero__inner {
+		max-width: calc(52rem + var(--space-page) + var(--space-page));
+	}
+
+	.vision-title {
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(3.5rem, 10vw, 6.5rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 0.95;
+	}
+
+	.vision-lead {
+		max-width: 48rem;
+		margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+		color: var(--color-text-soft);
+		font-family: var(--font-display);
+		font-size: clamp(1.35rem, 3vw, 1.9rem);
+		line-height: 1.45;
+	}
+
+	.vision-section,
+	.vision-closing-section {
+		padding-block: clamp(3.5rem, 8vw, 6rem);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.vision-section--soft,
+	.vision-closing-section {
+		background: var(--color-bg-soft);
+	}
+
+	.vision-grid {
+		display: grid;
+		grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+		gap: clamp(2rem, 6vw, 5rem);
+		align-items: start;
+	}
+
+	.vision-grid h2 {
+		max-width: 14ch;
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(2rem, 5vw, 3.25rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 1.08;
+	}
+
+	.vision-copy {
+		max-width: 42rem;
+		color: var(--color-text);
+		font-size: 1.08rem;
+	}
+
+	.vision-copy p {
+		margin: 0;
+	}
+
+	.vision-copy p + p {
+		margin-top: 1.35rem;
+	}
+
+	.vision-quote {
+		margin: clamp(1.75rem, 4vw, 2.5rem) 0;
+		padding: 1.25rem 0 1.25rem clamp(1.25rem, 4vw, 2rem);
+		border-left: 3px solid var(--color-accent);
+	}
+
+	.vision-quote p {
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(1.45rem, 4vw, 2.15rem);
+		line-height: 1.35;
+	}
+
+	.vision-closing {
+		max-width: 48rem;
+		padding: clamp(1.5rem, 5vw, 2.5rem);
+		border: 1px solid var(--color-border);
+		border-radius: 12px;
+		background: var(--color-bg);
+		box-shadow: 0 0.75rem 2rem rgb(30 58 47 / 7%);
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(1.45rem, 4vw, 2.25rem);
+		line-height: 1.35;
+	}
+
+	.vision-closing p {
+		margin: 0;
+	}
+
+	.vision-closing p + p {
+		margin-top: 1.4rem;
+	}
+
+	@media (max-width: 46rem) {
+		.vision-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.vision-grid h2 {
+			max-width: 18ch;
+		}
+	}
+</style>
