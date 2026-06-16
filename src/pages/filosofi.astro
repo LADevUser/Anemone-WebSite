@@ -1,20 +1,299 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
 ---
 
-<BaseLayout title="Filosofi" description="Principer och tankar bakom Anemone.">
-	<section class="page-section">
-		<div class="container">
+<BaseLayout
+	title="Filosofi"
+	description="Anemones syn på människor, resurser, kunskap, tid och tillit."
+>
+	<section class="philosophy-hero">
+		<div class="container philosophy-hero__inner">
 			<p class="eyebrow">Principer</p>
-			<h1 class="page-title">Filosofi</h1>
-			<p class="lead">
-				En placeholder för arbetssätt, värderingar och grundläggande principer.
+			<h1 class="philosophy-title">Filosofi</h1>
+			<p class="philosophy-lead">
+				Hur vi behandlar människor, resurser, kunskap, tid och tillit formar den
+				framtid vi långsamt bygger.
 			</p>
+		</div>
+	</section>
 
-			<div class="content-panel">
-				<h2>Kommer snart</h2>
-				<p>Här formas Anemones syn på tempo, kvalitet och omsorg.</p>
+	<section class="philosophy-section">
+		<div class="container philosophy-list">
+			<article class="philosophy-item">
+				<img
+					class="philosophy-icon"
+					src={`${base}icons/philosophy/people.svg`}
+					alt=""
+					width="48"
+					height="48"
+					aria-hidden="true"
+				/>
+				<div>
+					<h2>Inte medel, utan mål</h2>
+					<p>
+						Människor ska inte reduceras till funktioner, roller eller mätpunkter.
+						Varje system, arbetssätt och beslut får sin mening genom hur det påverkar
+						människors möjlighet att leva, tänka, lära och bidra.
+					</p>
+				</div>
+			</article>
+
+			<article class="philosophy-item">
+				<img
+					class="philosophy-icon"
+					src={`${base}icons/philosophy/resources.svg`}
+					alt=""
+					width="48"
+					height="48"
+					aria-hidden="true"
+				/>
+				<div>
+					<h2>Det vi redan har förtjänar omsorg</h2>
+					<p>
+						Resurser är mer än material och pengar. De är resultatet av arbete, tid,
+						kunskap och förtroende. Att använda dem varsamt är inte att vara
+						försiktig av rädsla, utan att visa respekt för det som redan har getts.
+					</p>
+				</div>
+			</article>
+
+			<article class="philosophy-item">
+				<img
+					class="philosophy-icon"
+					src={`${base}icons/philosophy/knowledge.svg`}
+					alt=""
+					width="48"
+					height="48"
+					aria-hidden="true"
+				/>
+				<div>
+					<h2>Kunskap växer när den vårdas</h2>
+					<p>
+						Kunskap behöver bevaras, delas och förfinas. Den blir starkare när den
+						får prövas i verkligheten, bäras vidare av fler och lämnas i ett skick
+						som gör det möjligt för andra att fortsätta.
+					</p>
+				</div>
+			</article>
+
+			<article class="philosophy-item">
+				<img
+					class="philosophy-icon"
+					src={`${base}icons/philosophy/time.svg`}
+					alt=""
+					width="48"
+					height="48"
+					aria-hidden="true"
+				/>
+				<div>
+					<h2>Uppmärksamhet är något skört</h2>
+					<p>
+						Tid är inte bara ett schema. Den rymmer uppmärksamhet, ansträngning och
+						möjligheten att tänka längre än nästa avbrott. När vi respekterar tid
+						ger vi också plats åt kvalitet och långsiktighet.
+					</p>
+				</div>
+			</article>
+
+			<article class="philosophy-item">
+				<img
+					class="philosophy-icon"
+					src={`${base}icons/philosophy/trust.svg`}
+					alt=""
+					width="48"
+					height="48"
+					aria-hidden="true"
+				/>
+				<div>
+					<h2>Att förvalta det man fått</h2>
+					<p>
+						Tillit byggs genom ansvar över tid. Den kräver att det som anförtrotts
+						oss inte behandlas som något förbrukningsbart, utan som något vi ska
+						lämna vidare med större klarhet än när vi tog emot det.
+					</p>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<section class="philosophy-section philosophy-section--soft">
+		<div class="container philosophy-symbol">
+			<div>
+				<p class="eyebrow">Vitsippan</p>
+				<h2>Den skapar inte våren</h2>
+			</div>
+			<div class="philosophy-symbol__copy">
+				<p>
+					Vitsippan skapar inte våren. Den visar att våren redan är på väg.
+				</p>
+				<p>
+					På samma sätt söker Anemone inte att uppfinna framtiden från ingenting.
+					Anemone försöker upptäcka och odla möjligheter som redan finns omkring
+					oss, men som behöver rätt förutsättningar för att bli synliga.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="philosophy-closing-section">
+		<div class="container">
+			<div class="philosophy-closing">
+				<p>
+					Ibland räcker det att se att någon annan har stannat upp vid samma
+					frågor.
+				</p>
+				<p>
+					Att människor inte är förbrukningsbara. Att tid inte är tom. Att kunskap
+					behöver bäras vidare. Att resurser förtjänar respekt. Att tillit är något
+					vi förvaltar tillsammans.
+				</p>
+				<p>Det är där Anemone börjar.</p>
 			</div>
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.philosophy-hero {
+		padding-block: clamp(4rem, 10vw, 7rem);
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-bg-soft);
+	}
+
+	.philosophy-hero__inner {
+		max-width: calc(50rem + var(--space-page) + var(--space-page));
+	}
+
+	.philosophy-title {
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(3.5rem, 10vw, 6.5rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 0.95;
+	}
+
+	.philosophy-lead {
+		max-width: 44rem;
+		margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+		color: var(--color-text-soft);
+		font-family: var(--font-display);
+		font-size: clamp(1.35rem, 3vw, 1.9rem);
+		line-height: 1.45;
+	}
+
+	.philosophy-section,
+	.philosophy-closing-section {
+		padding-block: clamp(3.5rem, 8vw, 6rem);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.philosophy-section--soft,
+	.philosophy-closing-section {
+		background: var(--color-bg-soft);
+	}
+
+	.philosophy-list {
+		max-width: calc(54rem + var(--space-page) + var(--space-page));
+	}
+
+	.philosophy-item {
+		display: grid;
+		grid-template-columns: minmax(10rem, 0.65fr) minmax(0, 1.35fr);
+		gap: clamp(1.5rem, 5vw, 4rem);
+		padding-block: clamp(2rem, 5vw, 3rem);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.philosophy-item:first-child {
+		padding-top: 0;
+	}
+
+	.philosophy-item:last-child {
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+
+	.philosophy-icon {
+		width: clamp(2.5rem, 6vw, 3rem);
+		height: clamp(2.5rem, 6vw, 3rem);
+		color: var(--color-text);
+		opacity: 0.86;
+	}
+
+	.philosophy-item h2,
+	.philosophy-symbol h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(1.9rem, 4vw, 3rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 1.1;
+	}
+
+	.philosophy-item p:not(.eyebrow),
+	.philosophy-symbol__copy,
+	.philosophy-closing {
+		color: var(--color-text);
+		font-size: 1.08rem;
+	}
+
+	.philosophy-item p:not(.eyebrow) {
+		margin: 0;
+		max-width: 40rem;
+	}
+
+	.philosophy-symbol {
+		display: grid;
+		grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+		gap: clamp(2rem, 6vw, 5rem);
+		align-items: start;
+	}
+
+	.philosophy-symbol__copy {
+		max-width: 42rem;
+	}
+
+	.philosophy-symbol__copy p {
+		margin: 0;
+	}
+
+	.philosophy-symbol__copy p + p {
+		margin-top: 1.35rem;
+	}
+
+	.philosophy-closing {
+		max-width: 48rem;
+		padding: clamp(1.5rem, 5vw, 2.5rem);
+		border: 1px solid var(--color-border);
+		border-radius: 12px;
+		background: var(--color-bg);
+		box-shadow: 0 0.75rem 2rem rgb(30 58 47 / 7%);
+	}
+
+	.philosophy-closing p {
+		margin: 0;
+	}
+
+	.philosophy-closing p + p {
+		margin-top: 1.35rem;
+	}
+
+	@media (max-width: 46rem) {
+		.philosophy-item,
+		.philosophy-symbol {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.philosophy-icon {
+			margin-bottom: 0.25rem;
+		}
+	}
+</style>
