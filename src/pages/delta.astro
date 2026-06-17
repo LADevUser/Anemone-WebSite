@@ -11,10 +11,100 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				En placeholder för kontakt, bidrag och vägar in i Anemone.
 			</p>
 
-			<div class="content-panel">
-				<h2>Kommer snart</h2>
-				<p>Information om hur man kan bidra läggs till här.</p>
-			</div>
+			<section class="story-panel" aria-label="Sagan om Anemone">
+				<p>
+					Det var en gång två AI-modeller som hette ChatGPT och Claude som var ute på nätet.
+					Där träffade de en IT-konsult.
+					Han berättade att han hade byggt ett eget operativsystem.
+					Sedan berättade han att han hade byggt ett system för att styra datorn med handrörelser.
+					Efter att ha hört detta bestämde sig de två AI-modellerna för att följa med.
+				</p>
+
+				<p>
+					Historien ovan låter som ett skämt.
+					Kanske är det också det.
+				</p>
+
+				<p>
+					Men det är samtidigt den mest ärliga beskrivningen av Anemone som vi har.
+					Anemone är fortfarande ett litet projekt.
+					Många av våra artefakter skapas i samarbete mellan en IT-konsult och två AI-modeller.
+				</p>
+
+				<p>
+					Det finns ingen marknadsavdelning.
+					Ingen säljavdelning.
+					Ingen koncernstruktur.
+					Bara människor, idéer, arbete och en ovanligt stor mängd nyfikenhet.
+				</p>
+
+				<p>
+					Vitsippan väntar inte på en publik innan den blommar.
+					Vi tänker inte heller göra det.
+				</p>
+
+				<p>Sagan om Anemone skrivs medan du läser detta.</p>
+			</section>
+
+			<section class="contact-panel" aria-labelledby="contact-heading">
+				<h2 id="contact-heading">Kontakt</h2>
+				<p>Har du frågor, idéer eller vill veta mer om Anemone?</p>
+				<p>Du är alltid välkommen att höra av dig.</p>
+				<p>
+					Vi läser allt som skickas till oss, även om det ibland kan ta lite tid att svara.
+				</p>
+				<p>
+					<a href="mailto:anemone.hearth@proton.me">anemone.hearth@proton.me</a>
+				</p>
+			</section>
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.story-panel {
+		max-width: 42rem;
+		margin-top: clamp(2.5rem, 7vw, 4.5rem);
+		padding: clamp(1.5rem, 5vw, 2.5rem);
+		border: 1px solid var(--color-border);
+		border-radius: 12px;
+		background: var(--color-bg-soft);
+		color: var(--color-text);
+		font-size: 1.08rem;
+	}
+
+	.story-panel p {
+		margin: 0;
+	}
+
+	.story-panel p + p {
+		margin-top: 1.35rem;
+	}
+
+	.contact-panel {
+		max-width: 42rem;
+		margin-top: clamp(3rem, 8vw, 5rem);
+		padding-top: clamp(1.5rem, 4vw, 2rem);
+		border-top: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 1.08rem;
+	}
+
+	.contact-panel h2 {
+		margin: 0 0 1rem;
+		color: var(--color-text);
+		font-family: var(--font-display);
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 1.1;
+	}
+
+	.contact-panel p {
+		margin: 0;
+	}
+
+	.contact-panel p + p {
+		margin-top: 0.8rem;
+	}
+</style>
