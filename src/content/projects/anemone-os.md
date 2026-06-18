@@ -17,6 +17,8 @@ Flera europeiska offentliga organisationer undersöker hur öppna standarder och
 
 Danmarks digitaliseringsministerium inledde 2025 en övergång från Microsoft Office till LibreOffice. Tidiga uppgifter omfattade även ett byte av operativsystem, men senare rapportering klargjorde att Windows tills vidare finns kvar. Exemplet visar värdet av en avgränsad migrering där organisationen kan utvärdera ett centralt verktyg innan fler delar förändras.
 
+Utöver arbetet med LibreOffice pågår även praktiska pilotprojekt där danska myndigheter testar Microsoft-oberoende arbetsmiljöer i verklig verksamhet. Erfarenheterna används för att utvärdera digital självständighet, valfrihet och minskat leverantörsberoende.
+
 ### Tyskland
 
 Delstaten Schleswig-Holstein har beslutat att införa LibreOffice som standardlösning och arbetar vidare med en bredare strategi för öppen programvara. Initiativet omfattar omkring 30 000 arbetsplatser och innehåller även planer för öppna filformat, samarbetsverktyg och Linux. Arbetet genomförs stegvis och inkluderar både teknisk anpassning och stöd till användarna.
@@ -29,6 +31,7 @@ Frankrikes nationella gendarmeri har under lång tid använt GendBuntu, en Ubunt
 
 - [Windows Central – Denmark moving away from Microsoft products](https://www.windowscentral.com/software-apps/windows-11/its-the-year-of-linux-at-least-for-denmark-heres-why-the-countrys-government-is-dumping-windows-and-office-365)
 - [PC Gamer – Danish Ministry and LibreOffice](https://www.pcgamer.com/software/operating-systems/denmark-is-switching-to-linux/)
+- [Pro Ing – Danish public sector testing a Microsoft-independent PC](https://pro.ing.dk/digitech/artikel/styrelsesdirektoer-har-testet-statens-nye-microsoft-frie-pc-i-halvanden-maaned-her-er-hans-dom)
 - [Open Source migration in Schleswig-Holstein](https://blog.documentfoundation.org/blog/2024/04/04/german-state-moving-30000-pcs-to-libreoffice/)
 - [German state Open Source strategy coverage](https://www.schleswig-holstein.de/DE/landesregierung/ministerien-behoerden/I/Presse/PI/2024/CdS/241125_cds_open-source-strategie)
 - [GendBuntu overview](https://en.wikipedia.org/wiki/GendBuntu)
